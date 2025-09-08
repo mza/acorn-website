@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acorn Computing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(-45deg, #000000, #0a0a0a, #111827, #0f172a, #020617);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            right: -100%;
+            bottom: -100%;
+            background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 25%);
+            animation: spotlight 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 30% 70%, rgba(30, 58, 138, 0.2) 0%, transparent 30%),
+                radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(37, 99, 235, 0.08) 0%, transparent 35%),
+                radial-gradient(circle at 10% 20%, rgba(29, 78, 216, 0.12) 0%, transparent 40%);
+            animation: shimmer 12s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        @keyframes spotlight {
+            0%, 100% {
+                transform: translate(-20%, -20%) scale(1);
+            }
+            25% {
+                transform: translate(20%, -30%) scale(1.2);
+            }
+            50% {
+                transform: translate(-10%, 20%) scale(0.9);
+            }
+            75% {
+                transform: translate(30%, 10%) scale(1.1);
+            }
+        }
+        
+        @keyframes shimmer {
+            0%, 100% {
+                opacity: 0.7;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+        
+        .shooting-star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.8);
+            animation: shoot 3s linear infinite;
+            top: -10px;
+        }
+        
+        .shooting-star::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            right: 2px;
+        }
+        
+        .shooting-star:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 2.5s;
+        }
+        
+        .shooting-star:nth-child(2) {
+            left: 30%;
+            animation-delay: 1.5s;
+            animation-duration: 3s;
+        }
+        
+        .shooting-star:nth-child(3) {
+            left: 60%;
+            animation-delay: 3s;
+            animation-duration: 2.8s;
+        }
+        
+        .shooting-star:nth-child(4) {
+            left: 80%;
+            animation-delay: 4.5s;
+            animation-duration: 3.5s;
+        }
+        
+        .shooting-star:nth-child(5) {
+            left: 45%;
+            animation-delay: 6s;
+            animation-duration: 2.2s;
+        }
+        
+        @keyframes shoot {
+            0% {
+                transform: translate(0, 0) rotate(45deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(300px, 300px) rotate(45deg);
+                opacity: 0;
+            }
+        }
+        
+        .container {
+            max-width: 600px;
+            animation: fadeIn 1s ease-in;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .keyboard-logo {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .key-row {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+        
+        .key {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 0;
+            padding: 12px 16px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            min-width: 45px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .key:hover, .key.pressed {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+        
+        .row-1 .key {
+            font-size: 1.5rem;
+            background: #7f1d1d;
+            color: white;
+            border-color: #991b1b;
+        }
+        
+        .row-1 .key:hover, .row-1 .key.pressed {
+            background: #991b1b;
+            color: white;
+        }
+        
+        .row-2 .key {
+            font-size: 1.5rem;
+        }
+        
+        .row-3 .key {
+            font-size: 1.5rem;
+        }
+        
+        .key.wide {
+            flex-grow: 1;
+            min-width: 100px;
+        }
+        
+        p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .divider {
+            width: 60px;
+            height: 4px;
+            background: white;
+            margin: 2rem auto;
+            border-radius: 2px;
+            opacity: 0.8;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="container">
+        <div class="keyboard-logo">
+            <div class="key-row row-1">
+                <div class="key">A</div>
+                <div class="key">C</div>
+                <div class="key">O</div>
+                <div class="key">R</div>
+                <div class="key">N</div>
+            </div>
+            <div class="key-row row-2">
+                <div class="key">C</div>
+                <div class="key">O</div>
+                <div class="key">M</div>
+                <div class="key">P</div>
+                <div class="key">U</div>
+            </div>
+            <div class="key-row row-3">
+                <div class="key">T</div>
+                <div class="key wide">I</div>
+                <div class="key">N</div>
+                <div class="key">G</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Map of keys to their corresponding elements
+        const keyMap = {};
+        
+        // Get all key elements and map them by their letter
+        document.querySelectorAll('.key').forEach(key => {
+            const letter = key.textContent.trim().toLowerCase();
+            if (!keyMap[letter]) keyMap[letter] = [];
+            keyMap[letter].push(key);
+        });
+        
+        // Listen for keydown events
+        document.addEventListener('keydown', (e) => {
+            const letter = e.key.toLowerCase();
+            if (keyMap[letter]) {
+                keyMap[letter].forEach(key => key.classList.add('pressed'));
+            }
+        });
+        
+        // Listen for keyup events
+        document.addEventListener('keyup', (e) => {
+            const letter = e.key.toLowerCase();
+            if (keyMap[letter]) {
+                keyMap[letter].forEach(key => key.classList.remove('pressed'));
+            }
+        });
+    </script>
+</body>
+</html>
