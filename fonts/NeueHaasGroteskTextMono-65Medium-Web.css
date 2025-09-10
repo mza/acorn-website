@@ -1,0 +1,12 @@
+@font-face {
+	font-family: 'Haas Text Mono Web';
+	src: url('NeueHaasGroteskTextMono-65Medium-Web.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+	}
+
+.NeueHaasGroteskTextMono-65Medium-Web {
+	font-family: 'Haas Text Mono Web';
+	font-weight: 500;
+	font-style: normal;
+	}

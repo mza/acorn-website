@@ -1,0 +1,53 @@
+/* NeueHaas Grotesk Text Mono - Roman (55) */
+@font-face {
+    font-family: 'NeueHaasGroteskTextMono';
+    src: url('NeueHaasGroteskTextMono-55Roman-Web.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* NeueHaas Grotesk Text Mono - Roman Oblique (56) */
+@font-face {
+    font-family: 'NeueHaasGroteskTextMono';
+    src: url('NeueHaasGroteskTextMono-56RomanOblique-Web.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* NeueHaas Grotesk Text Mono - Medium (65) */
+@font-face {
+    font-family: 'NeueHaasGroteskTextMono';
+    src: url('NeueHaasGroteskTextMono-65Medium-Web.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* NeueHaas Grotesk Text Mono - Medium Oblique (66) */
+@font-face {
+    font-family: 'NeueHaasGroteskTextMono';
+    src: url('NeueHaasGroteskTextMono-66MediumOblique-Web.woff2') format('woff2');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* NeueHaas Grotesk Text Mono - Bold (75) */
+@font-face {
+    font-family: 'NeueHaasGroteskTextMono';
+    src: url('NeueHaasGroteskTextMono-75Bold-Web.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* NeueHaas Grotesk Text Mono - Bold Oblique (76) */
+@font-face {
+    font-family: 'NeueHaasGroteskTextMono';
+    src: url('NeueHaasGroteskTextMono-76BoldOblique-Web.woff2') format('woff2');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}

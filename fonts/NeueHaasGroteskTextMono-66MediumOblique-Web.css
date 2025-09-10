@@ -1,0 +1,12 @@
+@font-face {
+	font-family: 'Haas Text Mono Web';
+	src: url('NeueHaasGroteskTextMono-66MediumOblique-Web.woff2') format('woff2');
+	font-weight: 500;
+	font-style: italic;
+	}
+
+.NeueHaasGroteskTextMono-66MediumOblique-Web {
+	font-family: 'Haas Text Mono Web';
+	font-weight: 500;
+	font-style: italic;
+	}
